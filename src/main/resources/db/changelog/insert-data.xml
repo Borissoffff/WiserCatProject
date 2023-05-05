@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="3" author="Jegor">
+        <loadData tableName="origin" file="classpath:countries.csv">
+            <column name="id" type="NUMERIC"/>
+            <column name="name" type="STRING"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="4" author="you">
+        <insert tableName="app_user">
+            <column name="id" valueNumeric="1"/>
+            <column name="username" value="user1"/>
+            <column name="password" value="1234"/>
+            <column name="first_name" value="John"/>
+            <column name="last_name" value="Doe"/>
+        </insert>
+        <insert tableName="app_user">
+            <column name="id" valueNumeric="2"/>
+            <column name="username" value="user2"/>
+            <column name="password" value="5678"/>
+            <column name="first_name" value="Jane"/>
+            <column name="last_name" value="Doe"/>
+        </insert>
+        <insert tableName="app_user">
+            <column name="id" valueNumeric="3"/>
+            <column name="username" value="user3"/>
+            <column name="password" value="6666"/>
+            <column name="first_name" value="Leo"/>
+            <column name="last_name" value="Messi"/>
+        </insert>
+
+        <!-- Insert PetType data -->
+        <insert tableName="pet_type">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="Dog"/>
+        </insert>
+        <insert tableName="pet_type">
+            <column name="id" valueNumeric="2"/>
+            <column name="name" value="Cat"/>
+        </insert>
+        <insert tableName="pet_type">
+            <column name="id" valueNumeric="3"/>
+            <column name="name" value="Parrot"/>
+        </insert>
+        <insert tableName="pet_type">
+            <column name="id" valueNumeric="4"/>
+            <column name="name" value="Hamster"/>
+        </insert>
+        <insert tableName="pet_type">
+            <column name="id" valueNumeric="5"/>
+            <column name="name" value="Bird"/>
+        </insert>
+        <insert tableName="pet_type">
+            <column name="id" valueNumeric="6"/>
+            <column name="name" value="Guinea Pig"/>
+        </insert>
+
+        <!-- Insert FurColor data -->
+        <insert tableName="fur_color">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="Black"/>
+        </insert>
+        <insert tableName="fur_color">
+            <column name="id" valueNumeric="2"/>
+            <column name="name" value="White"/>
+        </insert>
+        <insert tableName="fur_color">
+            <column name="id" valueNumeric="3"/>
+            <column name="name" value="Gray"/>
+        </insert>
+        <insert tableName="fur_color">
+            <column name="id" valueNumeric="4"/>
+            <column name="name" value="Brown"/>
+        </insert>
+        <insert tableName="fur_color">
+            <column name="id" valueNumeric="5"/>
+            <column name="name" value="Orange"/>
+        </insert>
+        <insert tableName="fur_color">
+            <column name="id" valueNumeric="6"/>
+            <column name="name" value="Red"/>
+        </insert>
+        <insert tableName="fur_color">
+            <column name="id" valueNumeric="7"/>
+            <column name="name" value="Blue"/>
+        </insert>
+
+        <insert tableName="pet">
+            <column name="code" value="PET001"/>
+            <column name="name" value="Doggo"/>
+            <column name="pet_type_id" valueNumeric="1"/>
+            <column name="fur_color_id" valueNumeric="1"/>
+            <column name="origin_id" valueNumeric="1"/>
+            <column name="user_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="pet">
+            <column name="code" value="PET002"/>
+            <column name="name" value="Lail"/>
+            <column name="pet_type_id" valueNumeric="2"/>
+            <column name="fur_color_id" valueNumeric="2"/>
+            <column name="origin_id" valueNumeric="2"/>
+            <column name="user_id" valueNumeric="2"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
