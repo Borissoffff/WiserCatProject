@@ -1,31 +1,25 @@
-How to run?
+## Backend
 
-1. git clone project
-2. open project
-3. run main method in WiserCatProjectApplication class. Path: src/main/java/com/example/wisercatproject/WiserCatProjectApplication.java
-4. make sure, what application is running on the localhost with port 8080
+### How to Run?
 
-Project description:
+1. Clone the project: `git clone <project-url>`
+2. Open the project in your IDE
+3. Run the main method in the `WiserCatProjectApplication` class. Path: `src/main/java/com/example/wisercatproject/WiserCatProjectApplication.java`
+4. Make sure the application is running on localhost on port 8080
 
-This is application, where you can log in your account and list, add or update your pets.
-<br />
-<br />
-Application uses several models: User, Pet, PetType, FurColor, Origin.
-<br />
-The database tables of those models are already included in H2 database by using liquibase xml files.
-<br />
-You can find models in "model" package and liquibase scripts in "resources" folder.
+### Description
 
-ERD of my application database
+The application uses several models: `User`, `Pet`, `PetType`, `FurColor`, and `Origin`. The database tables for these models are already created and filled with data using Liquibase XML files. For inserting data into the "origin" table, Liquibase uses the "countries.csv" file to correctly insert information about all world countries. You can find the models in the "model" package and the Liquibase scripts in the "resources" folder.
+
+ERD of database:
+
 ![ERD](src/main/resources/static/wisercat-2023-05-05_11-46.png)
 
-Server side application is divided into layers.
+The server side is divided into layers:
 1. Data access layer (repositories)
 2. Business logic layer (services)
 3. Application layer (controllers)
 
-In order to easily get and send data from server side to client side and vice versa I included DTOs and Object Mappers in my project.
-It This helps limit the information received on the client side (user does not need to have ids of pet type or pet origin).
+To easily get and send data from the server side to the client side and vice versa, the project includes DTOs and Object Mappers. This helps limit the information received on the client side (the user does not need to have ids of pet type or pet origin).  
 <br />
-<br />
-When user sends "put" or "post" requests on the back-end, my application uses Hibernate Validator validate application models constraints.
+When the user sends "PUT" or "POST" requests to the back-end, the application uses Hibernate Validator to validate the application models constraints.
