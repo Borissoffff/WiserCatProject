@@ -1,5 +1,7 @@
 package com.example.wisercatproject.controller;
 
+import com.example.wisercatproject.dto.UserDto;
+import com.example.wisercatproject.mapper.UserMapper;
 import com.example.wisercatproject.model.User;
 import com.example.wisercatproject.service.implementation.UserServiceImpl;
 import jakarta.validation.Valid;
@@ -18,6 +20,7 @@ import static org.springframework.http.HttpStatus.OK;
 public class UserController {
 
     private final UserServiceImpl userService;
+    private final UserMapper userMapper;
 
     @GetMapping("/")
     public ResponseEntity<Collection<User>> getUsers() {
@@ -26,9 +29,10 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable("id") Long id) {
+    public ResponseEntity<UserDto> getUser(@PathVariable("id") Long id) {
         User user = userService.get(id);
-        return new ResponseEntity<>(user, OK);
+        UserDto userDto = userMapper.toDto(user);
+        return new ResponseEntity<>(userDto, OK);
     }
 
     @PostMapping("/")
